@@ -4,6 +4,9 @@ A simple multiegg that's highly configurable (in my opinion), all for free and o
 
 aether is a multiegg designed to simply server management for hosting providers. Currently, it only supports Minecraft, but more may come soon.
 
+> [!WARNING]  
+> aether is still in it's early stages! right now, the Minecraft Proxies option is not assigned to anything, so it doesn't work anymore, and there may be more bugs that I didn't catch! if any bugs occur, please report it via [GitHub Issues](https://github.com/amogusreal69/aether/issues/new), thanks! :3
+
 ## Features
 there's not alot of impressive features, but some of them might be useful such as:
 * built-in rules: when enabled, the first boot of a server will show them rules to comply with a confirmation
