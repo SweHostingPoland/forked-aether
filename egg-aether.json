@@ -90,7 +90,7 @@
         },
         {
             "name": "Enable Forced MOTD (ADMIN ONLY)",
-            "description": "A switch to enable the Forced MOTD feature in aether. Requires Discord URL and Hosting Name to be set.",
+            "description": "A switch to enable the Forced MOTD feature in aether. Requires Discord URL and Hosting Name to be set. This setting can be bypassed by users by using a plugin or mod that interacts with the MOTD such as MiniMOTD or ServerListPlus.",
             "env_variable": "ENABLE_FORCED_MOTD",
             "default_value": "0",
             "user_viewable": false,

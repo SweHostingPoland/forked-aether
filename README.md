@@ -46,6 +46,7 @@ right now, this is what i'm planning to do:
 - [ ] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
 - [ ] ⌨️ don't make the startup tab filled with admin only variables, maybe like a .json file that people can host themselves?
 - [ ] 🔒 lock server softwares that hostings may not need
+- [ ] ➕ enable ability to change rules
 
 ## Credits
 this project wouldn't have been possible without theses projects:\
