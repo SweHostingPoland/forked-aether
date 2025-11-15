@@ -18,7 +18,7 @@ export ENABLE_RULES="0" # REQUIRED - Set to 1 to enable server rules on first st
 export MCJARS_API_KEY="" # Your MCJars API key for tracking, and (potentially) higher ratelimits
 
 # Variables for this script only
-SCRIPT_SOURCE="local" # source to download entrypoint.sh from, options: github, local
+SCRIPT_SOURCE="github" # source to download entrypoint.sh from, options: github, local
 SCRIPT_LOCATION="/workspaces/aether/entrypoint.sh" # if SCRIPT_SOURCE is local, set the path where entrypoint.sh is located
 
 # DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
