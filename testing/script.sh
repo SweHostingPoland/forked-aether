@@ -7,7 +7,7 @@ export SERVER_PORT="25565" # REQUIRED - Port the server will run on, will also s
 
 # Variables set by aether
 export HOSTING_NAME="aether" # REQUIRED - Name of the hosting, shows on the banner and forced MOTD (if enabled)
-export DISCORD_LINK="" # Discord invite link, shows below the banner and forced MOTD (if enabled)
+export DISCORD_LINK="aaa" # Discord invite link, shows below the banner and forced MOTD (if enabled)
 export EMAIL="" # Email address, shows below the banner
 export JAVA_VERSION="21" # REQUIRED - Java version to use, options: 25, 24, 23, 21, 17, 11, 8
 export STARTUP_ARGUMENT="" # Additional startup arguments for the server JVM
@@ -18,7 +18,7 @@ export ENABLE_RULES="0" # REQUIRED - Set to 1 to enable server rules on first st
 export MCJARS_API_KEY="" # Your MCJars API key for tracking, and (potentially) higher ratelimits
 
 # Variables for this script only
-SCRIPT_SOURCE="github" # source to download entrypoint.sh from, options: github, local
+SCRIPT_SOURCE="local" # source to download entrypoint.sh from, options: github, local
 SCRIPT_LOCATION="/workspaces/aether/entrypoint.sh" # if SCRIPT_SOURCE is local, set the path where entrypoint.sh is located
 
 # DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
