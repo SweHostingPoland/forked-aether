@@ -24,8 +24,7 @@ RUN apt update -y && \
         toilet \
         wget \
         software-properties-common && \
-    adduser --disabled-password --home /home/container container && \
-    wget -P /usr/share/figlet/ https://raw.githubusercontent.com/xero/figlet-fonts/refs/heads/master/DOS%20Rebel.flf
+    adduser --disabled-password --home /home/container container
 
 # Switch to non-root user
 USER container

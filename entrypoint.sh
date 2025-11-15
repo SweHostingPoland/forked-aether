@@ -15,7 +15,7 @@ function display {
     echo -e "\e[38;2;195;144;230m  Server Port: \e[38;5;250m$SERVER_PORT\e[0m"
     echo -e "\e[1;36m \e[0m"
     echo -e "\e[1;36m \e[0m"
-    toilet -f "DOS Rebel" --filter gay "$HOSTING_NAME" -w 200
+    toilet -f "smblock" --filter gay "$HOSTING_NAME" -w 200
     echo -e "\e[1;36m \e[0m"
     if [ -n "$DISCORD_LINK" ] || [ -n "$EMAIL" ]; then
         if [ -n "$DISCORD_LINK" ]; then
