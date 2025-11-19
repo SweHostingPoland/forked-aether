@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-11-12T14:48:23+01:00",
+    "exported_at": "2025-11-19T14:17:04+01:00",
     "name": "aether",
     "author": "hi@amogusreal.tech",
     "description": "\ud83d\ude80 a multiegg that's free and open-source",
@@ -52,10 +52,10 @@
             "name": "Vanilla Bedrock Dedicated Server Version",
             "description": "If you are using Vanilla Bedrock, set the version of the server here. You can grab it here: https:\/\/www.minecraft.net\/en-us\/download\/server\/bedrock. For example, if the server link is https:\/\/www.minecraft.net\/bedrockdedicatedserver\/bin-linux\/bedrock-server-1.21.114.1.zip, you would put in this variable: 1.21.114.1",
             "env_variable": "BEDROCK_VERSION",
-            "default_value": "1.21.114.1",
+            "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|regex:\/^[0-9.]+$\/|max:15",
+            "rules": "nullable|string",
             "field_type": "text"
         },
         {
@@ -126,6 +126,26 @@
             "user_viewable": false,
             "user_editable": false,
             "rules": "nullable|string|size:64",
+            "field_type": "text"
+        },
+        {
+            "name": "Aether Version",
+            "description": "DO NOT MODIFY THIS VARIABLE! This is used for Aether's update checker, and allows you to get new features, bug fixes, etc.",
+            "env_variable": "AETHER_VERSION",
+            "default_value": "1.0.0",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Disable aether update checker",
+            "description": "NOT RECOMMENDED! See \"Aether Version\" in variables for more information.",
+            "env_variable": "DISABLE_UPDATES",
+            "default_value": "0",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|boolean",
             "field_type": "text"
         }
     ]
