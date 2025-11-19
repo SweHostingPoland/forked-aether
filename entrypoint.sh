@@ -66,6 +66,40 @@ function prompt_eula_mc {
     fi
 }
 
+check_aether_updates() {
+    if [ "$DISABLE_UPDATES" == "1" ]; then
+        return
+    fi
+
+    local github_api_url="https://api.github.com/repos/lonersoft/aether/releases/latest"
+    
+    echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mChecking for updates... this may take a while\e[0m"
+    
+    # Fetch latest release version from GitHub
+    local latest_version=$(curl -s --max-time 5 --connect-timeout 5 "$github_api_url" 2>/dev/null | grep -oP '"tag_name": "\K(.*)(?=")')
+    
+    if [ -z "$latest_version" ]; then
+        echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mUnable to check for updates (network issue).\e[0m"
+        return
+    fi
+
+    if [ -z "$AETHER_VERSION" ]; then
+        AETHER_VERSION=" unknown"
+    fi
+    
+    # Remove 'v' prefix if present for comparison
+    latest_version=${latest_version#v}
+    
+    if [ "$AETHER_VERSION" != "$latest_version" ]; then
+        echo -e "\e[33m⚠️  A new version of aether is available: v$latest_version (current: v$AETHER_VERSION)\e[0m"
+        echo -e "\e[33m   Download: https://github.com/lonersoft/aether/releases/latest\e[0m"
+        echo -e "\e[1;36m \e[0m"
+    else
+        echo -e "\e[32m✓ aether is up to date (v$AETHER_VERSION)\e[0m"
+        echo -e "\e[1;36m \e[0m"
+    fi
+}
+
 function rules {
     accept_rules_file="system/rulesagreed"
 
@@ -239,6 +273,7 @@ function install_java {
     if [ -z "$JAVA_VERSION_S" ]; then
         clear
         display
+        check_aether_updates
         echo -e "\e[1;31m[ERROR] \e[0;31mOops! You met an error that occurred while installing Java $JAVA_VERSION.\e[0m"
         echo -e "\e[1;31m[ERROR] \e[0;31mPlease report this issue to the support team and share this error message:\e[0m"
         echo -e "\e[1;31m[ERROR] \e[0;31mThe JAVA_VERSION_S variable is empty, which cannot continue the Java Installation section.\e[0m"
@@ -504,18 +539,21 @@ function check_config {
             mc_bedrock_vanilla)
                 clear
                 display
+                check_aether_updates
                 launchBedrockVanillaServer
                 exit
                 ;;
             mc_java_vanilla)
                 clear
                 display
+                check_aether_updates
                 launchVanillaServer
                 exit
                 ;;
             mc_java | mc_java_paper | mc_java_purpur)
                 clear
                 display
+                check_aether_updates
                 case "$type" in
                 mc_java | mc_java_paper | mc_java_purpur)
                     launchJavaServer
@@ -526,12 +564,14 @@ function check_config {
             pmmp)
                 clear
                 display
+                check_aether_updates
                 launchPMMP
                 exit
                 ;;
             *)
                 clear
                 display
+                check_aether_updates
                 echo -e "\e[1;31m[ERROR] \e[0;31mInvalid system configuration type specified in system/multiegg.yml.\e[0m"
                 exit 1
                 ;;
@@ -539,6 +579,7 @@ function check_config {
         fi
         clear
         display
+        check_aether_updates
         echo -e "\e[1;31m[ERROR] \e[0;31mInvalid system configuration file.\e[0m"
         exit 1
     fi
@@ -552,6 +593,7 @@ function main {
     while true; do
         clear
         display
+        check_aether_updates
         mkdir -p system
         if [[ "$ENABLE_RULES" == "1" ]]; then
             rules
