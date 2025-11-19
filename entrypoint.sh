@@ -352,7 +352,8 @@ function install_bedrock {
         DOWNLOAD_URL="https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-$BEDROCK_VERSION.zip"
     fi
     
-   Downloading latest Bedrock Server        echo -e "\e[91m[ERROR] \e[31mFailed to determine Bedrock Server download URL.\e[0m"
+    if [ -z "$DOWNLOAD_URL" ]; then
+        echo -e "\e[91m[ERROR] \e[31mFailed to determine Bedrock Server download URL.\e[0m"
         exit 1
     fi
     
@@ -360,11 +361,10 @@ function install_bedrock {
     rm -rf *.bak versions.html.gz
     echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mDownloading Vanilla Bedrock Server\e[0m"
     if ! curl -fSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.$RANDVERSION.212 Safari/537.36" \
-       server.zip # Retrieve archive namet-Language: en" \
-        -o "$DOWNLOAD_FILE" "$DOWNLOAD_URL"; then
-        echo -e "\e[91m[ERROR] \e[31mFailed to download Bedr    if ! curl -fSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.$RANDVERSION.212 Safari/537.36" \
         -H "Accept-Language: en" \
-        -o "$DOWNLOAD_FILE" "$DOWNLOAD_URL"; thene[91m[ERROR] \e[31mPlease check the version number and try again. It could maybe also be a internet problem. This script will now exit.\e[0m"
+        -o "$DOWNLOAD_FILE" "$DOWNLOAD_URL"; then
+        echo -e "\e[91m[ERROR] \e[31mFailed to download Bedrock server from $DOWNLOAD_URL.\e[0m"
+        echo -e "\e[91m[ERROR] \e[31mPlease check the version number and try again. It could maybe also be a internet problem. This script will now exit.\e[0m"
         exit 1
     fi
     echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mUnpacking server files...\e[0m"
