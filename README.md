@@ -21,7 +21,7 @@ aether is free and open-source software. To host this egg, alot of resources and
 [**Donate to our nonprofit organization**](https://hcb.hackclub.com/donations/start/lonersoft) or [view our open finances](https://hcb.hackclub.com/lonersoft).
 
 ## ➕ Installation
-1. get the egg [here](https://github.com/lonersoft/aether/blob/main/egg-aether.json) and download the json file
+1. get the egg [here](https://github.com/lonersoft/aether/releases/latest) and download the json file
 2. navigate to yourpanelurl.com/admin/nests and create a new nest (optional)
 3. upload the json file to your newly created nest, or use a existing nest
 4. check the startup tab! there might be features you may want enabled, such as the forced MOTD
